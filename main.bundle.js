@@ -94,6 +94,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_goals_goals_service__ = __webpack_require__("../../../../../src/app/services/goals/goals.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_global_global_service__ = __webpack_require__("../../../../../src/app/services/global/global.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_analytics_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_users_users_service__ = __webpack_require__("../../../../../src/app/services/users/users.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -101,6 +102,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -162,7 +164,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_18__services_programs_programs_service__["a" /* ProgramsService */],
             __WEBPACK_IMPORTED_MODULE_20__services_global_global_service__["a" /* GlobalService */],
             __WEBPACK_IMPORTED_MODULE_19__services_goals_goals_service__["a" /* GoalsService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_analytics_analytics_service__["a" /* AnalyticsService */]
+            __WEBPACK_IMPORTED_MODULE_21__services_analytics_analytics_service__["a" /* AnalyticsService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_users_users_service__["a" /* UsersService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -513,7 +516,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/plans/plans.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\t\r\n\t<div class=\"plans\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-7\">\r\n\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t</h3>\r\n\t\t\t\t\t<div class=\"plan\">\r\n\t\t\t\t\t\t<img src=\"./assets/images/plan1.png\">\r\n\t\t\t\t\t\t<h3>اﻷهداف الاستراتيجة للخطة</h3>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li *ngFor=\"let goal of goals\"> {{ \"- \" +goal.name }}</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class=\"plan\">\r\n\t\t\t\t\t\t<img src=\"./assets/images/plan2.png\">\r\n\t\t\t\t\t\t<h3>برامج الخطة</h3>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<a *ngFor=\"let program of programs\" [routerLink]=\"['/programs', {id: program._id}]\"><li> {{ program.name }}</li></a>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t<div class=\"brdr\">\r\n\t\t\t\t\t<div class=\"row\">\t\r\n\t\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t\t<div class=\"c100 p{{ analytics.planPass }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ analytics.planPass }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">المنقضي من فترة تنفيذ الخطة</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-xs-4 brd_rght\">\r\n\t\t\t\t \t\t\t<div class=\"c100 p{{ analytics.WT }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ analytics.WT }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">نسبة الانجاز الكلية</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-xs-4 brd_rght\">\r\n\t\t\t\t\t\t\t<div class=\"c100 p{{ analytics.QA }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ analytics.QA }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">نسبة جودة اﻷداء</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div class=\"brdr\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-xs-6\">\r\n\t\t\t\t\t\t\t<div class=\"block2\">\r\n\t\t\t\t\t\t\t\t<div class=\"circle2\">\r\n\t\t\t\t\t\t\t\t\t<p>{{ analytics.prglen }}</p>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<h4>عدد البرامج الفاعلة</h4>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"block2\">\r\n\t\t\t\t\t\t\t\t<div class=\"circle2\">\r\n\t\t\t\t\t\t\t\t\t<p>{{ analytics.prjlen }}</p>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<h4>عدد المشاريع الحالية</h4>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-md-6 col-xs-4 brd_rght\">\r\n\r\n\t\t\t\t\t\t\t<svg viewBox=\"0 -20 920 900\" xmlns=\"http://www.w3.org/2000/svg\">\r\n\t\t\t\t\t\t\t\t<circle cx=\"800\" cy=\"100\" r=\"100\" style=\"fill: #4a1e03; stroke: #ddd; stroke-width: 15\"/>\r\n\t\t\t\t\t\t\t\t<text x=\"800\" y=\"120\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 80px;\">{{ analytics.LEN }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"400\" y=\"110\" text-anchor=\"middle\" style=\"fill: #4a1e03; font-size: 70px\">\r\n\t\t\t\t\t\t\t\t\tعدد المهام الحالية\r\n\t\t\t\t\t\t\t\t</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"800\" y1=\"200\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"400\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"420\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.ONT }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"410\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المنتظمة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"400\" x2=\"800\" y2=\"400\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"600\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"620\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.LTE }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"610\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المتأخرة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"600\" x2=\"800\" y2=\"600\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"800\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"820\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.STP }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"810\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المتوقفة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"800\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t</svg>\r\n\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<a routerLink=\"/programs\">\r\n\t\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t\tالبرامج\r\n\t\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t\t<img src=\"assets/images/programs.png\" class=\"img-responsive\">\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<a routerLink=\"/projects\">\r\n\t\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t\tالمشاريع\r\n\t\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t\t<img src=\"assets/images/projects.png\" class=\"img-responsive\">\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\tالتقارير\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<img src=\"assets/images/reports.png\" class=\"img-responsive\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\t\r\n\t<div class=\"plans\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-7\">\r\n\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t</h3>\r\n\t\t\t\t\t<div class=\"plan\">\r\n\t\t\t\t\t\t<img src=\"./assets/images/plan1.png\">\r\n\t\t\t\t\t\t<h3>اﻷهداف الاستراتيجة للخطة</h3>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li *ngFor=\"let goal of goals\"> {{ \"- \" +goal.name }}</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class=\"plan\">\r\n\t\t\t\t\t\t<img src=\"./assets/images/plan2.png\">\r\n\t\t\t\t\t\t<h3>برامج الخطة</h3>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<a *ngFor=\"let program of programs\" [routerLink]=\"['/programs', {id: program._id}]\"><li> {{ program.name }}</li></a>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t<div class=\"brdr\">\r\n\t\t\t\t\t<div class=\"row\">\t\r\n\t\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t\t<div class=\"c100 p{{ analytics.planPass }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ this.Math.ceil(analytics.planPass) }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">المنقضي من فترة تنفيذ الخطة</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-xs-4 brd_rght\">\r\n\t\t\t\t \t\t\t<div class=\"c100 p{{ analytics.WT }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ this.Math.ceil(analytics.WT) }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">نسبة الانجاز الكلية</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-xs-4 brd_rght\">\r\n\t\t\t\t\t\t\t<div class=\"c100 p{{ analytics.QA }} orange\">\r\n\t\t\t\t\t\t\t\t<span>{{ this.Math.ceil(analytics.QA) }}</span>\r\n\t\t\t\t\t\t\t\t<div class=\"slice\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"bar\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"fill\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h4 class=\"text-center\">نسبة جودة اﻷداء</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div class=\"brdr\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-xs-6\">\r\n\t\t\t\t\t\t\t<div class=\"block2\">\r\n\t\t\t\t\t\t\t\t<div class=\"circle2\">\r\n\t\t\t\t\t\t\t\t\t<p>{{ analytics.prglen }}</p>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<h4>عدد البرامج الفاعلة</h4>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"block2\">\r\n\t\t\t\t\t\t\t\t<div class=\"circle2\">\r\n\t\t\t\t\t\t\t\t\t<p>{{ analytics.prjlen }}</p>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<h4>عدد المشاريع الحالية</h4>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-md-6 col-xs-4 brd_rght\">\r\n\r\n\t\t\t\t\t\t\t<svg viewBox=\"0 -20 920 900\" xmlns=\"http://www.w3.org/2000/svg\">\r\n\t\t\t\t\t\t\t\t<circle cx=\"800\" cy=\"100\" r=\"100\" style=\"fill: #4a1e03; stroke: #ddd; stroke-width: 15\"/>\r\n\t\t\t\t\t\t\t\t<text x=\"800\" y=\"120\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 80px;\">{{ analytics.LEN }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"400\" y=\"110\" text-anchor=\"middle\" style=\"fill: #4a1e03; font-size: 70px\">\r\n\t\t\t\t\t\t\t\t\tعدد المهام الحالية\r\n\t\t\t\t\t\t\t\t</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"800\" y1=\"200\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"400\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"420\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.ONT }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"410\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المنتظمة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"400\" x2=\"800\" y2=\"400\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"600\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"620\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.LTE }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"610\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المتأخرة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"600\" x2=\"800\" y2=\"600\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t\t<circle cx=\"600\" cy=\"800\" r=\"80\" style=\"fill: #c79462; stroke: #ddd; stroke-width: 15\" />\r\n\t\t\t\t\t\t\t\t<text x=\"600\" y=\"820\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ analytics.STP }}</text>\r\n\t\t\t\t\t\t\t\t<text x=\"300\" y=\"810\" text-anchor=\"middle\" style=\"fill: #c79462; font-size: 55px;\">المهام المتوقفة</text>\r\n\t\t\t\t\t\t\t\t<line x1=\"690\" y1=\"800\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t\t\t\t\t\t</svg>\r\n\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<a routerLink=\"/programs\">\r\n\t\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t\tالبرامج\r\n\t\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t\t<img src=\"assets/images/programs.png\" class=\"img-responsive\">\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<a routerLink=\"/projects\">\r\n\t\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t\tالمشاريع\r\n\t\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t\t<img src=\"assets/images/projects.png\" class=\"img-responsive\">\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-xs-4\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\tالتقارير\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<img src=\"assets/images/reports.png\" class=\"img-responsive\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -547,6 +550,7 @@ var PlansComponent = (function () {
         this.goalsService = goalsService;
         this.programsService = programsService;
         this.analyticsService = analyticsService;
+        this.Math = Math;
         this.getGoals();
         this.getPrograms();
         this.getAnalytics();
@@ -615,7 +619,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/programs/programs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\t\r\n\t<div class=\"programs\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-9 col-sm-12\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-12\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class=\"prg_title\">\r\n\t\t\t\t\t\t\t<img src=\"./assets/images/programs.png\">\r\n\t\t\t\t\t\t\t<h4>{{activeProgram.name}}</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4 col-sm-4 col-xs-5\">\r\n\t\t\t\t\t\t<app-list [list]=\"programs\" (change)=\"getData($event)\" ></app-list>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-7\">\r\n\t\t\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t\t\t<p><span class=\"title\">عنوان البرنامج:</span> {{activeProgram.name}} </p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">التكلفة التقديرية: </span> {{activeProgram.approxCost}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">فترة البرنامج: </span>{{activeProgram.prgPeriod}} </p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">مدير البرنامج: </span> {{activeProgram.manager}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية المخطط: </span> {{activeProgram.datePlannedStart}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">وصف البرنامج: </span> {{activeProgram.description}}</p>\r\n\t\t\t\t\t\t\t<h5>اﻷهداف العامة: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let goal of activeProgram.goals\">{{ \"- \" + goal.l1}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<!-- <h5>الاستراتيجيات العامة: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li>نشر العلم الشرعي المؤصل</li>\r\n\t\t\t\t\t\t\t</ul> -->\r\n\t\t\t\t\t\t\t<h5>المشاريع: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let project of activeProgram.projects\">{{ \"- \" + project}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-3 col-sm-4 col-md-push-0 col-sm-push-4\">\r\n\t\t\t\t<app-state [state]=\"analytics\"></app-state>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\t\r\n\t<div class=\"programs\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-9 col-sm-12\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-12\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class=\"prg_title\">\r\n\t\t\t\t\t\t\t<img src=\"./assets/images/programs.png\">\r\n\t\t\t\t\t\t\t<h4>{{activeProgram.name}}</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4 col-sm-4 col-xs-5\">\r\n\t\t\t\t\t\t<app-list [list]=\"programs\" (change)=\"getData($event)\" ></app-list>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-7\">\r\n\t\t\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t\t\t<p><span class=\"title\">عنوان البرنامج:</span> {{activeProgram.name || \" غير متاح \"}} </p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">التكلفة التقديرية: </span> {{activeProgram.approxCost || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">فترة البرنامج: </span>{{activeProgram.prgPeriod || \" غير متاح \"}} </p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">مدير البرنامج: </span> {{activeProgram.manager || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية المخطط: </span> {{activeProgram.datePlannedStart || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd || \" غير متاح \" }}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">وصف البرنامج: </span> \r\n\t\t\t\t\t\t\t\t{{activeProgram.description!= \"\" ? activeProgram.description : \"لا يوجد\"}}\r\n\t\t\t\t\t\t\t</p>\r\n\r\n\t\t\t\t\t\t\t<h5>اﻷهداف العامة: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let goal of activeProgram.goals\">{{ \"- \" + goal.l1}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\r\n\t\t\t\t\t\t\t<h5>المشاريع: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let project of activeProgram.projects\">{{ \"- \" + project}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\r\n\t\t\t\t\t\t\t<!-- <ul *ngIf=\"activeProgram.goals.length > 0;else elseBlock1\">\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let goal of activeProgram.goals\">{{ \"- \" + goal.l1}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<ng-template #elseBlock1>\r\n\t\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t\t<li>لا يوجد</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</ng-template>\r\n\r\n\t\t\t\t\t\t\t<h5>المشاريع: </h5>\r\n\t\t\t\t\t\t\t<ul *ngIf=\"activeProgram.projects.length > 0;else elseBlock2\">\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let project of activeProgram.projects\">{{ \"- \" + project}}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<ng-template #elseBlock2>\r\n\t\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t\t<li>لا يوجد</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</ng-template> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-3 col-sm-4 col-md-push-0 col-sm-push-4\">\r\n\t\t\t\t<app-state [state]=\"analytics\"></app-state>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -629,7 +633,8 @@ module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_programs_programs_service__ = __webpack_require__("../../../../../src/app/services/programs/programs.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_goals_goals_service__ = __webpack_require__("../../../../../src/app/services/goals/goals.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_analytics_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_users_users_service__ = __webpack_require__("../../../../../src/app/services/users/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_analytics_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics/analytics.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -646,13 +651,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProgramsComponent = (function () {
-    function ProgramsComponent(programsService, goalsService, analyticsService, route) {
+    function ProgramsComponent(programsService, goalsService, analyticsService, route, usersService) {
         var _this = this;
         this.programsService = programsService;
         this.goalsService = goalsService;
         this.analyticsService = analyticsService;
         this.route = route;
+        this.usersService = usersService;
         this.activeProgram = {};
         this.route.params.subscribe(function (params) {
             _this.id = params['id'];
@@ -677,10 +684,21 @@ var ProgramsComponent = (function () {
     };
     ProgramsComponent.prototype.getData = function (id) {
         var _this = this;
-        this.getAnalytics(id);
         this.programsService.getProgram(id).subscribe(function (data) {
-            if (data['dateActualStart'] != 'NaN-NaN-NaN' && data['dateActualEnd'] != 'NaN-NaN-NaN') {
-                data['prgPeriod'] = _this.monthDiff(data['dateActualStart'], data['dateActualEnd']) + "شهر ";
+            if (data['datePlannedStart'] != 'NaN-NaN-NaN' && data['datePlannedEnd'] != 'NaN-NaN-NaN') {
+                var period = _this.monthDiff(data['datePlannedStart'], data['datePlannedEnd']);
+                // data['prgPeriod'] = this.monthDiff(data['dateActualStart'] , data['dateActualEnd']) + "شهر ";
+                if (period['days'] > 0 || period['months'] > 0) {
+                    if (period['months'] || period['months'] != 0) {
+                        data['prgPeriod'] = period['months'] + " شهر  ";
+                    }
+                    if (period['days'] || period['days'] != 0) {
+                        if (data['prgPeriod'])
+                            data['prgPeriod'] += period['days'] + " يوم ";
+                        else
+                            data['prgPeriod'] = period['days'] + " أيام/يوم ";
+                    }
+                }
             }
             else {
                 data['prgPeriod'] = 'غير متاح';
@@ -701,23 +719,16 @@ var ProgramsComponent = (function () {
                 _this.goalsService.getGoal(value.l1).subscribe(function (goal) {
                     value.l1 = goal['name'].replace(/\d+./, '');
                 });
-                // if (value.l2) {
-                // 	this.goalsService.getGoal(value.l2).subscribe((subGoal)=>{
-                // 		value.l2 = subGoal['name'].replace(/\d+./, '');
-                // 	})
-                // }
             });
+            if (data['manager']) {
+                _this.usersService.getUser(data['manager']).subscribe(function (user) {
+                    data['manager'] = user['name'];
+                });
+            }
+            else {
+                data['manager'] = "غير محدد";
+            }
             data['projects'] = [];
-            // this.projectsService.projectsInProgram().subscribe(prjs=>{
-            // 	console.log("prjs", prjs)
-            // 	// $.each(prjs, (i, p)=>{
-            // 	// 	this.activeProgram.projects.push(p.name);
-            // 	// })
-            // 	// console.log("activeProgram", this.activeProgram);
-            // 	// this.activeProgram = data
-            // }, (err)=>{
-            // 	console.log("error", err)
-            // })
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -733,7 +744,7 @@ var ProgramsComponent = (function () {
                     "Allow-Control-Allow-Origin": "*"
                 },
                 "processData": false,
-                "data": "{\"program\": " + id + "}"
+                "data": "{\"program\": \"" + id + "\"}"
                 // "data": "{\"program\": \"1514489024091\"}"
             };
             __WEBPACK_IMPORTED_MODULE_1_jquery__["ajax"](settings).done(function (response) {
@@ -741,6 +752,8 @@ var ProgramsComponent = (function () {
                     data['projects'].push(p.name);
                 });
                 _this.activeProgram = data;
+                console.log("this.activeProgram", _this.activeProgram);
+                _this.getAnalytics(id);
             });
         }, function (err) {
             console.log("error", err);
@@ -749,10 +762,10 @@ var ProgramsComponent = (function () {
     ProgramsComponent.prototype.getAnalytics = function (id) {
         var _this = this;
         this.analyticsService.planAnalytics('/analytics/program/' + id).subscribe(function (res) {
-            console.log(_this.activeProgram);
             res['completed'] = _this.activeProgram.completed;
             res['quality'] = _this.activeProgram.quality;
             res['status'] = _this.activeProgram.status;
+            res['passed'] = _this.activeProgram.passed || -1;
             _this.analytics = res;
         }, function (err) {
             console.log("err", err);
@@ -762,10 +775,18 @@ var ProgramsComponent = (function () {
         d1 = new Date(d1);
         d2 = new Date(d2);
         var months;
+        var days;
         months = (d2.getFullYear() - d1.getFullYear()) * 12;
         months -= d1.getMonth() + 1;
-        months += d2.getMonth();
-        return months <= 0 ? 0 : months;
+        months += d2.getMonth() + 1;
+        days = d2.getDate();
+        days -= d1.getDate();
+        var diff = {
+            "months": months,
+            "days": days
+        };
+        return diff;
+        // return months <= 0 ? 0 : months;
     };
     return ProgramsComponent;
 }());
@@ -775,10 +796,10 @@ ProgramsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/programs/programs.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/programs/programs.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_programs_programs_service__["a" /* ProgramsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_programs_programs_service__["a" /* ProgramsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_goals_goals_service__["a" /* GoalsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_goals_goals_service__["a" /* GoalsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_analytics_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_analytics_analytics_service__["a" /* AnalyticsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_programs_programs_service__["a" /* ProgramsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_programs_programs_service__["a" /* ProgramsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_goals_goals_service__["a" /* GoalsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_goals_goals_service__["a" /* GoalsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__services_analytics_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_analytics_analytics_service__["a" /* AnalyticsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_users_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_users_users_service__["a" /* UsersService */]) === "function" && _e || Object])
 ], ProgramsComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=programs.component.js.map
 
 /***/ }),
@@ -804,7 +825,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/projects/projects.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<div class=\"projects\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-9 col-sm-12\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-12\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class=\"prj_title\">\r\n\t\t\t\t\t\t\t<img src=\"./assets/images/projects.png\">\r\n\t\t\t\t\t\t\t<h4>{{activeProject.name}}</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4 col-sm-4 col-xs-5\">\r\n\t\t\t\t\t\t<app-list [list]=\"projects\" (change)=\"getData($event)\"></app-list>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-7\">\r\n\t\t\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t\t\t<p><span class=\"title\">عنوان المشروع:</span>{{activeProject.name}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">التكلفة التقديرية: </span>{{activeProject.approxCost}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">فترة المشروع: </span>{{activeProject.prjPeriod}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">مدير المشروع: </span>{{activeProject.manager}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية المخطط: </span>{{activeProject.datePlannedStart}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية الفعلي: </span>{{activeProject.dateActualStart}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية المخطط: </span>{{activeProject.datePlannedEnd}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية الفعلي: </span>{{activeProject.dateActualEnd}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">وصف المشروع: </span>{{activeProject.description}}</p>\r\n\t\t\t\t\t\t\t<h5>مراحل المشروع: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let stage of activeProject.stages\"> {{ \"- \" +stage.name}} </li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<h5>مخرجات المشروع: </h5>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let item of activeProject.outputs \"> {{ \"- \" + item }} </li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-3 col-sm-4 col-md-push-0 col-sm-push-4\">\r\n\t\t\t\t<app-state [state]=\"analytics\"></app-state>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12\">\r\n\t\t\t<app-navbar></app-navbar>\r\n\t\t\t<app-marquee></app-marquee>\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<div class=\"projects\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-9 col-sm-12\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-12\">\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<i class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i> الخطة في السطور\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class=\"prj_title\">\r\n\t\t\t\t\t\t\t<img src=\"./assets/images/projects.png\">\r\n\t\t\t\t\t\t\t<h4>{{activeProject.name}}</h4>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4 col-sm-4 col-xs-5\">\r\n\t\t\t\t\t\t<app-list [list]=\"projects\" (change)=\"getData($event)\"></app-list>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-7\">\r\n\t\t\t\t\t\t<div class=\"content\">\r\n\t\t\t\t\t\t\t<p><span class=\"title\">عنوان المشروع:</span>{{activeProject.name || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">التكلفة التقديرية: </span>{{activeProject.approxCost || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">فترة المشروع: </span>{{activeProject.prgPeriod || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">مدير المشروع: </span>{{activeProject.manager || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية المخطط: </span>{{activeProject.datePlannedStart || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ البداية الفعلي: </span>{{activeProject.dateActualStart || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية المخطط: </span>{{activeProject.datePlannedEnd || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p><span class=\"title\">تاريخ النهاية الفعلي: </span>{{activeProject.dateActualEnd || \" غير متاح \"}}</p>\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\t<span class=\"title\">وصف المشروع: </span>\r\n\t\t\t\t\t\t\t\t{{activeProject.description != \"\" ? activeProject.description : \"لا يوجد\"}}\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t<h5>مراحل المشروع: </h5>\r\n\t\t\t\t\t\t\t<ul *ngIf=\"activeProject.stages.length > 0\">\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let stage of activeProject.stages\"> {{ \"- \" +stage.name}} </li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<ul *ngIf=\"activeProject.stages.length == 0\">\r\n\t\t\t\t\t\t\t\t<li>لا يوجد</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<h5>مخرجات المشروع: </h5>\r\n\t\t\t\t\t\t\t<!-- <ul>\r\n\t\t\t\t\t\t\t\t<li *ngFor=\"let item of activeProject.outputs \"> {{ item }} </li>\r\n\t\t\t\t\t\t\t</ul> -->\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li>{{ activeProject.outputs[0] != \"\" ? activeProject.outputs[0] : \"لا يوجد\" }}</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-3 col-sm-4 col-md-push-0 col-sm-push-4\">\r\n\t\t\t\t<app-state [state]=\"analytics\"></app-state>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-12 nopad\">\r\n\t\t\t<app-footer></app-footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -815,6 +836,7 @@ module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_projects_projects_service__ = __webpack_require__("../../../../../src/app/services/projects/projects.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_analytics_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_users_users_service__ = __webpack_require__("../../../../../src/app/services/users/users.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -828,10 +850,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProjectsComponent = (function () {
-    function ProjectsComponent(projectsService, analyticsService) {
+    function ProjectsComponent(projectsService, analyticsService, usersService) {
         this.projectsService = projectsService;
         this.analyticsService = analyticsService;
+        this.usersService = usersService;
         this.activeProject = {};
         this.getData('1514490491256');
         this.getProjects();
@@ -846,13 +870,24 @@ var ProjectsComponent = (function () {
     };
     ProjectsComponent.prototype.getData = function (id) {
         var _this = this;
-        this.getAnalytics(id);
         this.projectsService.getProject(id).subscribe(function (res) {
-            if (res['dateActualStart'] != 'NaN-NaN-NaN' && res['dateActualEnd'] != 'NaN-NaN-NaN') {
-                res['prjPeriod'] = _this.monthDiff(res['dateActualStart'], res['dateActualEnd']) + "شهر ";
+            if (res['datePlannedStart'] != 'NaN-NaN-NaN' && res['datePlannedEnd'] != 'NaN-NaN-NaN') {
+                var period = _this.monthDiff(res['datePlannedStart'], res['datePlannedEnd']);
+                // res['prgPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']) + "شهر ";
+                if (period['days'] > 0 || period['months'] > 0) {
+                    if (period['months'] || period['months'] != 0) {
+                        res['prgPeriod'] = period['months'] + " شهر  ";
+                    }
+                    if (period['days'] || period['days'] != 0) {
+                        if (res['prgPeriod'])
+                            res['prgPeriod'] += period['days'] + " يوم ";
+                        else
+                            res['prgPeriod'] = period['days'] + " أيام/يوم ";
+                    }
+                }
             }
             else {
-                res['prjPeriod'] = 'غير متاح';
+                res['prgPeriod'] = 'غير متاح';
             }
             if (res['dateActualStart'] == 'NaN-NaN-NaN') {
                 res['dateActualStart'] = 'غير متاح';
@@ -866,7 +901,17 @@ var ProjectsComponent = (function () {
             if (res['datePlannedEnd'] == 'NaN-NaN-NaN') {
                 res['datePlannedEnd'] = 'غير متاح';
             }
+            if (res['manager']) {
+                _this.usersService.getUser(res['manager']).subscribe(function (user) {
+                    res['manager'] = user['name'];
+                });
+            }
+            else {
+                res['manager'] = "غير محدد";
+            }
             _this.activeProject = res;
+            console.log("this.activeProject", _this.activeProject.outputs.length);
+            _this.getAnalytics(id);
         }, function (err) {
             console.log("error", err);
         });
@@ -874,10 +919,10 @@ var ProjectsComponent = (function () {
     ProjectsComponent.prototype.getAnalytics = function (id) {
         var _this = this;
         this.analyticsService.planAnalytics('/analytics/project/' + id).subscribe(function (res) {
-            console.log(_this.activeProject);
             res['completed'] = _this.activeProject.completed;
             res['quality'] = _this.activeProject.quality;
             res['status'] = _this.activeProject.status;
+            res['passed'] = _this.activeProject.passed || -1;
             _this.analytics = res;
         }, function (err) {
             console.log("err", err);
@@ -887,10 +932,18 @@ var ProjectsComponent = (function () {
         d1 = new Date(d1);
         d2 = new Date(d2);
         var months;
+        var days;
         months = (d2.getFullYear() - d1.getFullYear()) * 12;
         months -= d1.getMonth() + 1;
-        months += d2.getMonth();
-        return months <= 0 ? 0 : months;
+        months += d2.getMonth() + 1;
+        days = d2.getDate();
+        days -= d1.getDate();
+        var diff = {
+            "months": months,
+            "days": days
+        };
+        return diff;
+        // return months <= 0 ? 0 : months;
     };
     return ProjectsComponent;
 }());
@@ -900,10 +953,10 @@ ProjectsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/projects/projects.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/projects/projects.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_projects_projects_service__["a" /* ProjectsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_projects_projects_service__["a" /* ProjectsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_analytics_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_analytics_analytics_service__["a" /* AnalyticsService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_projects_projects_service__["a" /* ProjectsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_projects_projects_service__["a" /* ProjectsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_analytics_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_analytics_analytics_service__["a" /* AnalyticsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_users_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_users_users_service__["a" /* UsersService */]) === "function" && _c || Object])
 ], ProjectsComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=projects.component.js.map
 
 /***/ }),
@@ -977,7 +1030,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#myCarousel{\r\n\tmargin: 20px 0;\r\n}\r\n.carousel-inner{\r\n\twidth: 90%;\r\n\tmargin: 0 auto;\r\n\tborder-radius: 30px;\r\n}\r\n.carousel-inner > .item > img{\r\n\theight: 400px;\r\n\t/*height: 50%;*/\r\n\twidth: 100%;\r\n}\r\n.carousel-control.left,\r\n.carousel-control.right\r\n{\r\n\tbackground: #eee;\r\n\theight: 28px;\r\n\twidth: 28px;\r\n\tborder-radius: 50%;\r\n\tleft: 12px;\r\n\tbox-shadow: 0px -2px 4px #888;\r\n}\r\n.carousel-control.left{\r\n\tleft: 12px;\r\n}\r\n.carousel-control.right\r\n{\r\n\t/*height: 9%;\r\n\twidth: 3%;*/\r\n\tright: 12px;\r\n}\r\n.carousel-control.right:hover,\r\n.carousel-control.left:hover{\r\n\tbox-shadow: none;\r\n}\r\n\r\n.carousel-control\r\n{\r\n\tposition: absolute;\r\n\ttop: 45%;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\twidth: 5%;\r\n\tfont-size: auto;\r\n\tcolor: #000;\r\n\ttext-align: center;\r\n\topacity: 1;\r\n\ttext-shadow: none;\r\n\tcolor: #4a1e03;\r\n}\r\n.carousel-control .fa{\r\n\tfont-size: 22px;\r\n\tfont-weight: 700;\r\n}\r\n.carousel-control:hover\r\n{\r\n\tcolor: #000;\r\n}\r\n.carousel-indicators\r\n{\r\n\tbottom: -35px;\r\n}\r\n.carousel-indicators li\r\n{\r\n\tdisplay: inline-block;\r\n\twidth: 10px;\r\n\theight: 10px;\r\n\tmargin: 1px;\r\n\ttext-indent: -999px;\r\n\tcursor: pointer;\r\n\tbackground-color: #000\\9;\r\n\tbackground-color: rgba(0,0,0,0);\r\n\tborder: 1px solid #4a1e03;\r\n\tborder-radius: 50%;\r\n}\r\n.carousel-indicators .active\r\n{\r\n\twidth: 12px;\r\n\theight: 12px;\r\n\tmargin: 0;\r\n\tbackground-color: #4a1e03;\r\n}\r\n.carousel-caption\r\n{\r\n\tposition: absolute;\r\n\tright: 0;\r\n\ttop: 20%;\r\n\tbottom: auto;\r\n\tleft: 0;\r\n\tz-index: 10;\r\n\tpadding-top: 20px;\r\n\tpadding-bottom: 20px;\r\n\tpadding-right: 20px;\r\n\tcolor: #fff;\r\n\ttext-align: right;\r\n\tbackground: rgba(255,255,255,0.4);\r\n\tbackground: linear-gradient(-90deg, rgba(255,255,255,0.5), transparent);\r\n}\r\n.carousel-caption h2{\r\n\tcolor: #4a1e03;\r\n\tfont-size: 44px;\r\n\tmargin-top: 0px;\r\n}\r\n.carousel-caption h1{\r\n\tcolor: #fff;\r\n\tfont-size: 44px;\r\n\tmargin-top: 0px;\r\n}\r\n.carousel-caption h3{\r\n\twidth: 80%;\r\n\tfont-size: 22px;\r\n}\r\n.carousel-caption ul li {\r\n\twidth: 50%;\r\n\tfloat: left;\r\n\tfont-size: 17px;\r\n\tcolor: #333;\r\n}\r\n.message h1{\r\n\tcolor: #4a1e03\r\n}\r\n.message h3{\r\n\tcolor: #333\r\n}\r\n.carousel-caption a{\r\n\tcolor: #fff;\r\n\tdisplay: block;\r\n}\r\n/*.carousel-caption ul.goals{\r\n\tpadding-right: 0px;\r\n}*/\r\n.carousel-caption ul.goals li{\r\n\twidth: 90%;\r\n\tfloat: none;\r\n}", ""]);
+exports.push([module.i, "#myCarousel{\r\n\tmargin: 20px 0;\t\r\n}\r\n.carousel-inner{\r\n\twidth: 90%;\r\n\tmargin: 0 auto;\r\n\tborder-radius: 30px;\r\n}\r\n.carousel-inner > .item > img{\r\n\theight: 400px;\r\n\t/*height: 50%;*/\r\n\twidth: 100%;\r\n}\r\n.carousel-control.left,\r\n.carousel-control.right\r\n{\r\n\tbackground: #eee;\r\n\theight: 28px;\r\n\twidth: 28px;\r\n\tborder-radius: 50%;\r\n\tleft: 12px;\r\n\tbox-shadow: 0px -2px 4px #888;\r\n}\r\n.carousel-control.left{\r\n\tleft: 12px;\r\n}\r\n.carousel-control.right\r\n{\r\n\t/*height: 9%;\r\n\twidth: 3%;*/\r\n\tright: 12px;\r\n}\r\n.carousel-control.right:hover,\r\n.carousel-control.left:hover{\r\n\tbox-shadow: none;\r\n}\r\n\r\n.carousel-control\r\n{\r\n\tposition: absolute;\r\n\ttop: 45%;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\twidth: 5%;\r\n\tfont-size: auto;\r\n\tcolor: #000;\r\n\ttext-align: center;\r\n\topacity: 1;\r\n\ttext-shadow: none;\r\n\tcolor: #4a1e03;\r\n}\r\n.carousel-control .fa{\r\n\tfont-size: 22px;\r\n\tfont-weight: 700;\r\n}\r\n.carousel-control:hover\r\n{\r\n\tcolor: #000;\r\n}\r\n.carousel-indicators\r\n{\r\n\tbottom: -35px;\r\n}\r\n.carousel-indicators li\r\n{\r\n\tdisplay: inline-block;\r\n\twidth: 10px;\r\n\theight: 10px;\r\n\tmargin: 1px;\r\n\ttext-indent: -999px;\r\n\tcursor: pointer;\r\n\tbackground-color: #000\\9;\r\n\tbackground-color: rgba(0,0,0,0);\r\n\tborder: 1px solid #4a1e03;\r\n\tborder-radius: 50%;\r\n}\r\n.carousel-indicators .active\r\n{\r\n\twidth: 12px;\r\n\theight: 12px;\r\n\tmargin: 0;\r\n\tbackground-color: #4a1e03;\r\n}\r\n.carousel-caption\r\n{\r\n\tposition: absolute;\r\n\tright: 0;\r\n\ttop: 20%;\r\n\tbottom: auto;\r\n\tleft: 0;\r\n\tz-index: 10;\r\n\tpadding-top: 20px;\r\n\tpadding-bottom: 20px;\r\n\tpadding-right: 20px;\r\n\tcolor: #fff;\r\n\ttext-align: right;\r\n\tbackground: rgba(255,255,255,0.4);\r\n\t/*background: linear-gradient(-90deg, rgba(255,255,255,0.5), transparent);*/\r\n\tbackground: linear-gradient(-60deg, rgba(113, 113, 113, 0.6), transparent);\r\n}\r\n.carousel-caption h2{\r\n\t/*color: #4a1e03;*/\r\n\tfont-size: 44px;\r\n\tmargin-top: 0px;\r\n}\r\n.carousel-caption h1{\r\n\tcolor: #fff;\r\n\tfont-size: 44px;\r\n\tmargin-top: 0px;\r\n}\r\n.carousel-caption h3{\r\n\twidth: 80%;\r\n\tfont-size: 22px;\r\n}\r\n.carousel-caption ul li {\r\n\twidth: 50%;\r\n\tfloat: left;\r\n\tfont-size: 17px;\r\n\t/*color: #4a1e03;*/\r\n}\r\n.message h1{\r\n\t/*color: #4a1e03*/\r\n}\r\n.message p{\r\n\twidth: 80%;\r\n\t/*color: #4a1e03;*/\r\n\t/*font-family: \"Courier New\", Courier, monospace;*/\r\n\tfont-size: 20px;\r\n}\r\n.carousel-caption a{\r\n\tcolor: #fff;\r\n\tdisplay: block;\r\n}\r\n/*.carousel-caption ul.goals{\r\n\tpadding-right: 0px;\r\n}*/\r\n.carousel-caption ul.goals li{\r\n\twidth: 90%;\r\n\tfloat: none;\r\n}", ""]);
 
 // exports
 
@@ -990,7 +1043,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/slider/slider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\r\n    <!-- Wrapper for slides -->\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n        <div class=\"item active\">\r\n            <img src=\"assets/images/slide1.png\">\r\n            <div class=\"carousel-caption\">\r\n                <h1>الرؤية</h1>\r\n                <h3>{{vision}}</h3>\r\n            </div>\r\n        </div>\r\n        <div class=\"item message\">\r\n            <img src=\"assets/images/slide2.jpeg\">\r\n            <div class=\"carousel-caption\">\r\n                <h1>الرسالة</h1>\r\n                <h3>{{message}}</h3>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img src=\"assets/images/slide3.jpeg\">\r\n            <div class=\"carousel-caption\">\r\n                <h2>اﻷهداف</h2>\r\n                <ul class=\"goals\">\r\n                    <li *ngFor=\"let goal of goals\" id=\"{{ goal._id }}\">{{\"-\" +goal.name}}</li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img src=\"assets/images/slide4.jpeg\">\r\n            <div class=\"carousel-caption\">\r\n                <h2>البرامج</h2>\r\n                <ul>\r\n                    <li *ngFor=\"let p of programs\" id=\"{{ p._id }}\">{{p.name}}</li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Left and right controls -->\r\n    <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\r\n        <span class=\"fa fa-angle-left\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\r\n        <span class=\"fa fa-angle-right\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n    </a>\r\n    <ol class=\"carousel-indicators\">\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\r\n    </ol>\r\n</div>\r\n"
+module.exports = "<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\r\n    <!-- Wrapper for slides -->\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n        <div class=\"item active\">\r\n            <img src=\"assets/images/slide1.png\">\r\n            <div class=\"carousel-caption\">\r\n                <h1>الرؤية</h1>\r\n                <h3>{{vision}}</h3>\r\n            </div>\r\n        </div>\r\n        <div class=\"item message\">\r\n            <img src=\"assets/images/slide2.jpeg\">\r\n            <div class=\"carousel-caption\">\r\n                <h1>الرسالة</h1>\r\n                <p>{{message}}</p>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img src=\"assets/images/slide3.jpeg\">\r\n            <div class=\"carousel-caption\">\r\n                <h2>اﻷهداف</h2>\r\n                <ul class=\"goals\">\r\n                    <li *ngFor=\"let goal of goals\" id=\"{{ goal._id }}\">{{\"-\" +goal.name}}</li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div class=\"item\">\r\n            <img src=\"assets/images/slide4.jpg\">\r\n            <div class=\"carousel-caption\">\r\n                <h2>البرامج</h2>\r\n                <ul>\r\n                    <li *ngFor=\"let p of programs\" id=\"{{ p._id }}\">{{p.name}}</li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- Left and right controls -->\r\n    <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\r\n        <span class=\"fa fa-angle-left\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\r\n        <span class=\"fa fa-angle-right\" aria-hidden=\"true\"></span>\r\n        <span class=\"sr-only\">Next</span>\r\n    </a>\r\n    <ol class=\"carousel-indicators\">\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\r\n        <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\r\n    </ol>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1067,7 +1120,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".state{\r\n\ttext-align: center;\r\n}\r\n.block1, .block2{\r\n\tborder-bottom: 1px solid #ccc;\r\n\tmargin-top: 10px;\r\n}\r\n.block1 .circle1 {\r\n\twidth: 90px;\r\n\theight: 90px;\r\n\tborder-radius: 50%;\r\n\tfont-size: 20px;\r\n\tcolor: #fff;\r\n\tline-height: 70px;\r\n\ttext-align: center;\r\n\tbackground: #4a1e03;\r\n\tborder: 10px solid #ddd;\r\n\tmargin: 0 auto;\r\n}\r\n.block1 .circle1 p{\r\n\tmargin: 0px;\r\n}\r\n.block1 h4{\r\n\tcolor: #c79462;\r\n}\r\n.block2 .circle2 {\r\n\twidth: 70px;\r\n\theight: 70px;\r\n\tborder-radius: 50%;\r\n\tfont-size: 18px;\r\n\tcolor: #fff;\r\n\tline-height: 50px;\r\n\ttext-align: center;\r\n\tbackground: #A7852B;\r\n\tborder: 10px solid #ddd;\r\n\tmargin: 0 auto;\r\n}", ""]);
+exports.push([module.i, ".state{\r\n\ttext-align: center;\r\n}\r\n.block1, .block2{\r\n\tborder-bottom: 1px solid #ccc;\r\n\tmargin-top: 10px;\r\n}\r\n.block1 .circle1 {\r\n\twidth: 120px;\r\n\theight: 120px;\r\n\tborder-radius: 50%;\r\n\tfont-size: 20px;\r\n\tcolor: #fff;\r\n\tline-height: 100px;\r\n\ttext-align: center;\r\n\tbackground: #4a1e03;\r\n\tborder: 10px solid #ddd;\r\n\tmargin: 0 auto;\r\n}\r\n.block1 .circle1 p{\r\n\tmargin: 0px;\r\n}\r\n.block1 h4{\r\n\tcolor: #c79462;\r\n}\r\n.block2 .circle2 {\r\n\twidth: 70px;\r\n\theight: 70px;\r\n\tborder-radius: 50%;\r\n\tfont-size: 18px;\r\n\tcolor: #fff;\r\n\tline-height: 50px;\r\n\ttext-align: center;\r\n\tbackground: #A7852B;\r\n\tborder: 10px solid #ddd;\r\n\tmargin: 0 auto;\r\n}", ""]);
 
 // exports
 
@@ -1080,7 +1133,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/state/state.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"state\">\r\n\t<div class=\"block1\">\r\n\t\t<div class=\"circle1\">\r\n\t\t\t<p *ngIf=\"state.status == 1 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 2 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 3 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 4 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 5 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 6 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 7 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"state.status == 8 ? true : false\">منتظم</p>\r\n\t\t\t<p *ngIf=\"!state.status \"> مجهول </p>\r\n\t\t</div>\r\n\t\t<h4>الحالة الراهنة</h4>\r\n\t</div>\r\n\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.ptd < 0 ? 0: state.ptd }}</p>\r\n\t\t</div>\r\n\t\t<h4>المنقضى من فترة التنفيذ</h4>\r\n\t</div>\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.completed ? Math.ceil(state.completed)  : 0 }}</p>\r\n\t\t</div>\r\n\t\t<h4>نسبة الانجاز الكلية</h4>\r\n\t</div>\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.quality ? Math.ceil(state.quality)  : 0 }}</p>\r\n\t\t</div>\r\n\t\t<h4>نسبة جودة اﻷداء</h4>\r\n\t</div>\r\n\r\n\t<svg viewBox=\"0 -20 920 900\" xmlns=\"http://www.w3.org/2000/svg\">\r\n\t\t<circle cx=\"800\" cy=\"100\" r=\"100\" style=\"fill: #4a1e03; stroke: #ddd; stroke-width: 15\"/>\r\n\t\t<text x=\"800\" y=\"120\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 80px;\">{{ state.LEN }}</text>\r\n\t\t<text x=\"400\" y=\"110\" text-anchor=\"middle\" style=\"fill: #4a1e03; font-size: 70px\">\r\n\t\t\tعدد المهام الحالية\r\n\t\t</text>\r\n\t\t<line x1=\"800\" y1=\"200\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"400\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"420\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.ONT }}</text>\r\n\t\t<text x=\"300\" y=\"410\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المنتظمة</text>\r\n\t\t<line x1=\"690\" y1=\"400\" x2=\"800\" y2=\"400\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"600\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"620\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.LTE }}</text>\r\n\t\t<text x=\"300\" y=\"610\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المتأخرة</text>\r\n\t\t<line x1=\"690\" y1=\"600\" x2=\"800\" y2=\"600\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"800\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"820\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.STP }}</text>\r\n\t\t<text x=\"300\" y=\"810\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المتوقفة</text>\r\n\t\t<line x1=\"690\" y1=\"800\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t</svg>\r\n\r\n</div>"
+module.exports = "<div class=\"state\">\r\n\t\t<div class=\"block1\">\r\n\t\t\t<div class=\"circle1\">\r\n\t\t\t\t<p style=\"font-size: 11px;\" *ngIf=\"state.status == 1 ? true : false\"> تحت الدراسة والاعتماد </p>\r\n\t\t\t\t<p *ngIf=\"state.status == 2 ? true : false\"> لم يبدء بعد </p>\r\n\t\t\t\t<p *ngIf=\"state.status == 3 ? true : false\"> متوقف مؤقتا </p>\r\n\t\t\t\t<p *ngIf=\"state.status == 4 ? true : false\">منتظم</p>\r\n\t\t\t\t<p *ngIf=\"state.status == 5 ? true : false\"> متأخر</p>\r\n\t\t\t\t<p *ngIf=\"state.status == 6 ? true : false\"> ملغى</p>\r\n\t\t\t\t<p *ngIf=\"state.status == 7 ? true : false\"> منتهي</p>\r\n\t\t\t\t<p style=\"font-size: 11px;\" *ngIf=\"state.status == 8 ? true : false\"> البيانات غير مكتملة</p>\r\n\t\t\t\t<p *ngIf=\"!state.status \"> مجهول </p>\r\n\t\t\t</div>\r\n\t\t\t<h4>الحالة الراهنة</h4>\r\n\t\t</div>\r\n\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.passed && state.passed < 0 ? 0: state.passed }}</p>\r\n\t\t</div>\r\n\t\t<h4>المنقضى من فترة التنفيذ</h4>\r\n\t</div>\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.completed ? Math.ceil(state.completed) : 0   }}</p>\r\n\t\t</div>\r\n\t\t<h4>نسبة الانجاز الكلية</h4>\r\n\t</div>\r\n\t<div class=\"block2\">\r\n\t\t<div class=\"circle2\">\r\n\t\t\t<p>{{ state.quality ? this.Math.ceil(state.quality)  : 0 }}</p>\r\n\t\t</div>\r\n\t\t<h4>نسبة جودة اﻷداء</h4>\r\n\t</div>\r\n\r\n\t<svg viewBox=\"0 -20 920 900\" xmlns=\"http://www.w3.org/2000/svg\">\r\n\t\t<circle cx=\"800\" cy=\"100\" r=\"100\" style=\"fill: #4a1e03; stroke: #ddd; stroke-width: 15\"/>\r\n\t\t<text x=\"800\" y=\"120\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 80px;\">{{ state.LEN }}</text>\r\n\t\t<text x=\"400\" y=\"110\" text-anchor=\"middle\" style=\"fill: #4a1e03; font-size: 70px\">\r\n\t\t\tعدد المهام الحالية\r\n\t\t</text>\r\n\t\t<line x1=\"800\" y1=\"200\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"400\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"420\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.ONT }}</text>\r\n\t\t<text x=\"300\" y=\"410\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المنتظمة</text>\r\n\t\t<line x1=\"690\" y1=\"400\" x2=\"800\" y2=\"400\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"600\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"620\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.LTE }}</text>\r\n\t\t<text x=\"300\" y=\"610\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المتأخرة</text>\r\n\t\t<line x1=\"690\" y1=\"600\" x2=\"800\" y2=\"600\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t\t<circle cx=\"600\" cy=\"800\" r=\"80\" style=\"fill: #A7852B; stroke: #ddd; stroke-width: 15\" />\r\n\t\t<text x=\"600\" y=\"820\" text-anchor=\"middle\" style=\"fill: #fff; font-size: 65px;\">{{ state.STP }}</text>\r\n\t\t<text x=\"300\" y=\"810\" text-anchor=\"middle\" style=\"fill: #337ab7; font-size: 55px;\">المهام المتوقفة</text>\r\n\t\t<line x1=\"690\" y1=\"800\" x2=\"800\" y2=\"800\" stroke-width=\"2\" stroke=\"#337ab7\"/>\r\n\r\n\t</svg>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1102,6 +1155,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var StateComponent = (function () {
     function StateComponent() {
+        this.Math = Math;
     }
     return StateComponent;
 }());
@@ -1178,6 +1232,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ApiService = (function () {
+    //url: string = 'http://localhost:8001/api';
     function ApiService(http) {
         this.http = http;
         this.url = 'http://35.190.171.93:8001/api';
@@ -1322,8 +1377,7 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api_service__ = __webpack_require__("../../../../../src/app/services/api/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_api_service__ = __webpack_require__("../../../../../src/app/services/api/api.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectsService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1336,17 +1390,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var ProjectsService = (function () {
-    function ProjectsService(api, http) {
+    function ProjectsService(api) {
         this.api = api;
-        this.http = http;
     }
     ProjectsService.prototype.projects = function () {
         return this.api.post('project/list');
-    };
-    ProjectsService.prototype.projectsInProgram = function () {
-        return this.http.post('project/list', { program: "1514488967962" });
     };
     ProjectsService.prototype.getProject = function (id) {
         return this.api.get('project/' + id);
@@ -1355,11 +1404,51 @@ var ProjectsService = (function () {
 }());
 ProjectsService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__api_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__api_api_service__["a" /* ApiService */]) === "function" && _a || Object])
 ], ProjectsService);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=projects.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/users/users.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_api_service__ = __webpack_require__("../../../../../src/app/services/api/api.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UsersService = (function () {
+    function UsersService(api) {
+        this.api = api;
+    }
+    UsersService.prototype.users = function () {
+        return this.api.post('user/list');
+    };
+    UsersService.prototype.getUser = function (id) {
+        return this.api.get('user/' + id);
+    };
+    return UsersService;
+}());
+UsersService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__api_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__api_api_service__["a" /* ApiService */]) === "function" && _a || Object])
+], UsersService);
+
+var _a;
+//# sourceMappingURL=users.service.js.map
 
 /***/ }),
 
